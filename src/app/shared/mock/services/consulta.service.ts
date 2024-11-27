@@ -1,27 +1,26 @@
 import { HttpClient, HttpResponse } from "@angular/common/http";
 
-
 import { lastValueFrom } from "rxjs";
 import { Injectable } from "@angular/core";
 import { ToastComponent } from "../../components/toaster/toast/toast.component";
-import { PacienteEntity } from "../../domains/paciente";
+import { ConsultaEntity } from "../../domains/consulta";
 
 
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://localhost:9090';
 @Injectable({
     providedIn: 'root'
   })
-export class PacienteServiceMock{
+export class ConsultaServiceMock{
 
 
     constructor(private http: HttpClient,
         private toastComponent: ToastComponent){}
 
-    async findById(id: number): Promise<PacienteEntity> {
+    async findById(id: number): Promise<ConsultaEntity> {
         try {
-      const paciente = await lastValueFrom(this.http.get<PacienteEntity>(API_URL + `/pacientes/${id}`));
-      return paciente;
+      const consulta = await lastValueFrom(this.http.get<ConsultaEntity>(API_URL + `/consultas/${id}`));
+      return consulta;
 
     } catch (error) {
       console.error(error);
@@ -29,12 +28,12 @@ export class PacienteServiceMock{
     }
     }
 
-    async getAll(): Promise<Array<PacienteEntity>> {
+    async getAll(): Promise<Array<ConsultaEntity>> {
        try{
-            const pacientes: Array<PacienteEntity> = await lastValueFrom
-            (this.http. get<Array<PacienteEntity>>(API_URL + '/pacientes'))
-                if(pacientes){
-                    return pacientes;
+            const consultas: Array<ConsultaEntity> = await lastValueFrom
+            (this.http. get<Array<ConsultaEntity>>(API_URL + '/consultas'))
+                if(consultas){
+                    return consultas;
                 }
        }catch (error) {
         console.error(error);
@@ -43,10 +42,10 @@ export class PacienteServiceMock{
     }
 
 
-    async save(paciente: PacienteEntity): Promise<boolean> {
+    async save(consulta: ConsultaEntity): Promise<boolean> {
         try{
-            const pacientes= await lastValueFrom(this.http.post(API_URL + '/pacientes', paciente,  { 'headers': { 'Content-Type': 'application/json' } }))
-            if(pacientes){
+            const consultas= await lastValueFrom(this.http.post(API_URL + '/consultas', consulta,  { 'headers': { 'Content-Type': 'application/json' } }))
+            if(consultas){
                 return true;
             }
         } catch (error){
@@ -55,10 +54,10 @@ export class PacienteServiceMock{
         }
         return false
     }
-    async update(paciente: PacienteEntity): Promise<boolean> {
+    async update(consulta: ConsultaEntity): Promise<boolean> {
         try {
-            const pacientes = await lastValueFrom(this.http.put(API_URL + `/pacientes/${paciente.id}`, paciente, { 'headers': { 'Content-Type': 'application/json' } }));
-            if (pacientes) {
+            const consultas = await lastValueFrom(this.http.put(API_URL + `/consultas/${consulta.id}`, consulta, { 'headers': { 'Content-Type': 'application/json' } }));
+            if (consultas) {
               return true;
             }
           } catch (error) {
@@ -70,7 +69,7 @@ export class PacienteServiceMock{
     }
     async delete(id: number): Promise<boolean> {
         try {
-            const success: HttpResponse<any> = await lastValueFrom(this.http.delete(API_URL + `/pacientes/${id}`, { observe: 'response' }));
+            const success: HttpResponse<any> = await lastValueFrom(this.http.delete(API_URL + `/consultas/${id}`, { observe: 'response' }));
             return success.status >= 200 && success.status < 300;
           } catch (error) {
             this.toastComponent.showApiError(error);

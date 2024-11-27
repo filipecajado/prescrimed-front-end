@@ -28,6 +28,9 @@ import { MedicoModule } from './pages/medico/medico.module';
 import { MedicoServiceMock } from './shared/mock/services/medico.service';
 import { PacienteModule } from './pages/paciente/paciente.module';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { ConsultaModule } from './pages/consulta/consulta.module';
+import { PacienteServiceMock } from './shared/mock/services/paciente.service';
+import { ConsultaServiceMock } from './shared/mock/services/consulta.service';
 
 @NgModule({
   declarations: [
@@ -52,12 +55,15 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     MaterialModule,
     LoginModule,
     MedicoModule,
-    PacienteModule
+    PacienteModule,
+    ConsultaModule
   ],
   providers: [
     { provide: MatPaginatorIntl, useClass: CustomPaginatorIntl },
     { provide: MaterialServiceMock},
     { provide: MedicoServiceMock},
+    { provide: PacienteServiceMock},
+    { provide: ConsultaServiceMock},
     { provide: AuthServiceMock },
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     ConfirmationService,

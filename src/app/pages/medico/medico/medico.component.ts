@@ -95,7 +95,6 @@ export class MedicoComponent implements OnInit{
                 this.router.navigate(['/medicos']);
             }
         } else {
-            medico.id = Math.floor(Math.random() * 1000000).toString()
             await this.medicoService.save(medico);
             this.toastComponent.showSuccessCustomMessage('Sucesso!', 'Medico criado com sucesso.', 3000);
             this.router.navigate(['/medicos']);

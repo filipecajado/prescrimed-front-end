@@ -100,7 +100,6 @@ export class PacienteComponent implements OnInit{
                 this.router.navigate(['/pacientes']);
             }
         } else {
-            paciente.id = Math.floor(Math.random() * 1000000).toString()
             await this.pacienteService.save(paciente);
             this.toastComponent.showSuccessCustomMessage('Sucesso!', 'Paciente criado com sucesso.', 3000);
             this.router.navigate(['/pacientes']);

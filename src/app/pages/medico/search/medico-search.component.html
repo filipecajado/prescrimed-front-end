@@ -45,10 +45,6 @@
          <ng-container matColumnDef="action">
            <th mat-header-cell *matHeaderCellDef class="column-10 "></th>
            <td mat-cell *matCellDef="let medico" class="column-10">
-             <button mat-icon-button  pTooltip="Editar"
-               tooltipPosition="top" (click)="redirectToEditMaterial(medico.id)">
-               <mat-icon class="icon-secondary-color" >edit</mat-icon>
-             </button>
              <button mat-icon-button  pTooltip="Excluir" tooltipPosition="top"  (click)="confirmDelete(medico)">
                <mat-icon class="icon-secondary-color">delete</mat-icon>
              </button>

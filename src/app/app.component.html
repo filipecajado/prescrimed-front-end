@@ -4,7 +4,7 @@
 <mat-toolbar class="header-content d-flex align-items-center justify-content-between" *ngIf="!isRouterLogin">
   <div fxShow="true" fxHide.gt-sm="true" class="d-flex align-items-center responsive">
     <h1 style="font-size: 1.6rem;" class="pt-3 semibold"> <img src="./assets/imgs/logo.svg" width="50"
-        style="margin-right: 20px;">Nautillus</h1>
+        style="margin-right: 20px;">PrescriMed</h1>
   </div>
 
   <div fxShow="true" fxHide.lt-md="true" class="d-flex align-items-center me-2">
@@ -20,30 +20,21 @@
 
 <div [ngClass]="{ 'active-menu' : isShown}" *ngIf="!isRouterLogin">
   <div class="menu-bar">
-    <div class="side-nav-menu mt-3">
-      <div class="d-flex align-items-center my-2" [ngClass]="{ 'menu-small' : isShown}">
-        <mat-icon class="material-icons-outlined">dashboard</mat-icon>
-        <a class="ms-1 link-nav">Dashboard</a>
-      </div>
-    </div>
+
     <div class="side-nav-menu mt-2" [ngClass]="{ 'text-center' : isShown}">
       <span>GERAL</span>
       <div class=" d-flex align-items-center my-2" [ngClass]="{ 'menu-small' : isShown}">
-        <mat-icon class="white material-icons-outlined">layers</mat-icon>
-        <a class="ms-1 link-nav" routerLink="/medicos">Medico</a>
+        <mat-icon class="white material-icons-outlined">medical_services</mat-icon>
+        <a class="ms-1 link-nav" routerLink="/medicos">Médico</a>
       </div>
 
       <div class=" d-flex align-items-center my-2" [ngClass]="{ 'menu-small' : isShown}">
-        <mat-icon class="white material-icons-outlined">layers</mat-icon>
+        <mat-icon class="white material-icons-outlined">person</mat-icon>
         <a class="ms-1 link-nav" routerLink="/pacientes">Paciente</a>
       </div>
       <div class=" d-flex align-items-center my-2" [ngClass]="{ 'menu-small' : isShown}">
-        <mat-icon class="white material-icons-outlined">layers</mat-icon>
+        <mat-icon class="white material-icons-outlined">receipt_long</mat-icon>
         <a class="ms-1 link-nav" routerLink="/consultas">Consultas</a>
-      </div>
-      <div class=" d-flex align-items-center my-2" [ngClass]="{ 'menu-small' : isShown}">
-        <mat-icon class="white material-icons-outlined">person</mat-icon>
-        <a class="ms-1 link-nav" routerLink="/clients">Cliente</a>
       </div>
     </div>
     <div class="d-flex justify-content-center mt-5">

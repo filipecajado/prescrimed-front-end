@@ -1,6 +1,14 @@
 {
   "pacientes": [],
-  "medicos": [],
+  "medicos": [
+    {
+      "id": "",
+      "nome": "twet",
+      "especializacao": "trt",
+      "telefone": "27999999999",
+      "cpf": "18888888888"
+    }
+  ],
   "users": [
     {
       "id": "1",
