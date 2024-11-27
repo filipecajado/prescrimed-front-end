@@ -1,0 +1,110 @@
+<div class="container-fluid p-3">
+
+  <div class="d-flex align-items-center justify-content-between mb-5">
+    <label class="titles title-2 semibold extended-secondary-darker">
+      {{form.get('materialData')?.get('id')?.value ? 'Editar Material' : 'Novo Material'}}
+    </label>
+  </div>
+
+
+  <form [formGroup]="form">
+    <div class="form-div" formGroupName="materialData">
+      <div class="row">
+        <div class="col-sm-2">
+          <mat-form-field appearance="outline">
+            <mat-label class="paragraph paragraph-2 mat-label">Código</mat-label>
+            <input matInput formControlName="id" />
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-5">
+          <mat-form-field appearance="outline">
+            <mat-label class="paragraph paragraph-2 mat-label">Nome</mat-label>
+            <input matInput formControlName="name" />
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-5">
+          <mat-form-field appearance="outline">
+            <mat-label class="paragraph paragraph-2 mat-label">Fornecedor</mat-label>
+            <input matInput formControlName="provider" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2">
+          <mat-form-field appearance="outline" class="mat-input">
+            <mat-label class="paragraph paragraph-2 mat-label">Tipo</mat-label>
+            <mat-select formControlName="type" [disableOptionCentering]="true" panelClass="mat-select-panel-below">
+              <mat-option *ngFor="let type of types" [value]="type">
+                {{type}}
+              </mat-option>
+            </mat-select>
+            <span class="icon-dropdown">
+
+            </span>
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-2">
+          <mat-form-field appearance="outline" class="mat-input">
+            <mat-label class="paragraph paragraph-2 mat-label">Unidade</mat-label>
+            <mat-select formControlName="unit" [disableOptionCentering]="true" panelClass="mat-select-panel-below">
+              <mat-option *ngFor="let unit of units" [value]="unit">
+                {{unit}}
+              </mat-option>
+            </mat-select>
+            <span class="icon-dropdown">
+            </span>
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-2">
+          <mat-form-field appearance="outline">
+            <mat-label class="paragraph paragraph-2 mat-label">Quantidade</mat-label>
+            <input matInput formControlName="quantity" type="number" />
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-3">
+          <mat-form-field appearance="outline">
+            <mat-label class="paragraph paragraph-2 mat-label">Preço de Custo</mat-label>
+            <input matInput formControlName="priceCost" type="number" />
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-3">
+          <mat-form-field appearance="outline">
+            <mat-label class="paragraph paragraph-2 mat-label">Preço de Execução</mat-label>
+            <input matInput formControlName="priceExecution" type="number" />
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 col-sm-12">
+          <mat-form-field appearance="outline" class="mat-input">
+            <mat-label class="paragraph paragraph-2 mat-label">Descrição</mat-label>
+            <textarea matInput maxLength="400" formControlName="description" style="height: 4rem;"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="d-flex justify-content-end">
+      <div class="col-sm-2 mx-2">
+        <button mat-button class="btn btn-secondary subtitle subtitle-1 semibold primary-color"
+           (click)="confirmCancel()">Cancelar</button>&nbsp;
+      </div>
+      <div class="col-sm-2">
+        <button mat-button [disabled]="form.invalid" class="btn btn-primary subtitle subtitle-1 semibold white"
+          (click)="save()">
+          {{form.get('materialData')?.get('id')?.value ? 'Atualizar' : 'Salvar'}}
+        </button>&nbsp;
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-confirm-modal #confirmModal></app-confirm-modal>

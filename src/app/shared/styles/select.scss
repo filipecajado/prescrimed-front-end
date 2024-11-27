@@ -1,0 +1,29 @@
+.mat-select-value{    
+    font-family: var(--font) !important;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled):not(.mat-option-multiple) {
+    background-color: var(--extended-primary-light-active) !important;
+    color: black !important;
+}
+
+.mat-option-multiple {
+    color: black !important;
+    font-family: var(--font) !important;
+}
+
+.mat-option {
+    font-family: var(--font) !important;
+}
+
+.mat-select-trigger {
+    display: block !important;
+}
+
+.mat-select-arrow {
+    color: transparent !important;
+}
+
+.mat-form-field-underline {
+    display: none !important;
+}

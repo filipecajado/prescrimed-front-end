@@ -1,0 +1,53 @@
+.mat-form-field-appearance-outline:not(.mat-form-field-disabled) .mat-form-field-appearance-outline:not(.mat-form-field-invalid) .mat-form-field-flex:hover .mat-form-field-outline {
+    color: var(--extended-primary-normal) !important;
+}
+
+.mat-form-field-appearance-outline:not(.mat-form-field-invalid) .mat-form-field-outline-thick {
+    color: var(--secondary-blue) !important;
+}
+
+.mat-form-field.mat-focused:not(.mat-form-field-invalid) .mat-form-field-label {
+    color: var(--secondary-blue) !important;
+}
+
+
+
+mat-form-field {
+    width: 100%;
+}
+
+input.mat-input-element {
+    height: 22px;
+}
+
+.mat-input {
+    font-family: var(--font) !important;
+    line-height: 1.5 !important;
+}
+
+.mat-form-field-invalid {  
+    .mat-form-field-label {
+      color: var(--r-600) !important;
+    }
+
+    .mat-form-field-outline-thick {
+        color: var(--r-600) !important;
+    }
+}
+
+.mat-label-error {
+    color: var(--r-600) !important;
+}
+
+
+.custom-label-input {
+    border-radius: 8px !important;
+    background-color: var(--extended-secondary-light) !important;
+    font-family: var(--font) !important;
+    color: var(--extended-secondary-darker) !important;
+}
+
+.mat-form-field.mat-focused:not(.mat-form-field-invalid) .mat-form-field-required-marker {
+    color: var(--secondary-blue) !important;
+}
+

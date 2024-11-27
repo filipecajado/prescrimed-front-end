@@ -1,0 +1,86 @@
+.btn {
+    border-radius: 100px !important;
+    box-shadow: 0 0 0 0 !important;
+    align-items: center;
+    width: 100%;
+    display: flex;
+
+    &.fit-content {
+      width: fit-content;
+
+      @media screen and (max-width: 500px) {
+        width: 100%;
+      }
+    }
+
+
+    &.btn-primary {
+        background: var(--extended-primary-normal) !important;
+        border-color: transparent !important;
+
+        &:hover {
+            background-color: var(--extended-primary-normal-hover) !important;
+        }
+
+        &:active {
+            background-color: var(--extended-primary-normal-active) !important;
+        }
+
+        &:disabled {
+            cursor: not-allowed !important;
+            background: var(--extended-neutral-light-hover) !important;
+        }
+
+    }
+
+    &.btn-secondary {
+        background: var(--extended-primary-light) !important;
+        border-color: transparent !important;
+        
+        &:hover {
+            background-color: var(--extended-secondary-normal) !important;
+            color: var(--secondary-neutral-white) !important;
+        }
+
+        &:focus {
+            background-color: var(--extended-primary-light) !important;
+            box-shadow: 0px 0px 6px  rgba(19, 41, 61, 0.385) !important;
+            color: var(--secondary-neutral-white) !important;
+        }
+
+        &:active {
+            background-color: var(--extended-primary-normal) !important;
+        }
+
+        &:disabled {
+            cursor: not-allowed !important;
+            background: var(--extended-neutral-light) !important;
+            color: var(--extended-neutral-light-active) !important;
+        }
+    }
+
+    &.btn-tertiary {
+       border: 1px solid var(--extended-primary-normal);
+
+        &:active {
+            background-color: transparent !important;
+        }
+
+        &:disabled {
+            cursor: not-allowed !important;
+            background-color: #FFF !important;
+            border: 1px solid var(--extended-neutral-light-active);
+            color: var(--extended-neutral-light-active) !important;
+        }
+    }
+
+    &.text-button:disabled {
+        cursor: not-allowed !important;
+        background-color: #FFF !important;
+        color: var(--extended-neutral-light-active) !important;
+    }
+}
+
+.border-white {
+    border: 1px solid white !important;
+}

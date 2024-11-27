@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./colors.scss";
+@import "./fonts.scss";
+@import "./button.scss";
+@import "./icons.scss";
+@import "./input.scss";
+@import "./select.scss";
+@import "./dialog.scss";
+@import "./checkbox.scss";
+@import "./table.scss";
+@import "./switch.scss";
+
+
+
+
+html, body { height: 100%; font-family: 'Open Sans', sans-serif; overflow: hidden;}
+
+
+.form-div {
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--extended-secondary-light);
+  }

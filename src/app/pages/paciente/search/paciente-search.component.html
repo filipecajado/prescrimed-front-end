@@ -1,0 +1,64 @@
+<div class="container-fluid p-3">
+
+ <div class="">
+   <div>
+      <label class="titles title-3 semibold extended-secondary-darker ">Pacientes</label>
+   </div>
+   <div class="d-flex justify-content-between my-3">
+
+     <div class="col-5 search">
+      <mat-form-field appearance="fill" class="mat-input">
+        <mat-icon matPrefix class="icon-search">search</mat-icon>
+        <mat-label class="paragraph paragraph-2 mat-label">Pesquisar</mat-label>
+        <input matInput value="" [(ngModel)]="fiterTable" (keyup)="applyFilter($event)" >
+      </mat-form-field>
+    </div>
+
+     <div>
+       <button mat-button class="btn btn-primary subtitle white subtitle-1 semiboldw-auto p-3" routerLink="/pacientes/new-paciente">
+         <mat-icon class="icon-btn">add</mat-icon>Novo Paciente
+       </button>
+     </div>
+   </div>
+   <div>
+     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;" matSort>
+
+         <ng-container matColumnDef="nome">
+             <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-10"> Nome </th>
+             <td mat-cell *matCellDef="let paciente" class="column-10"> {{paciente.nome}} </td>
+         </ng-container>
+
+         <ng-container matColumnDef="cpf">
+           <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-10"> CPF </th>
+           <td mat-cell *matCellDef="let paciente" class="column-10 number"> {{paciente.cpf}} </td>
+         </ng-container>
+         <ng-container matColumnDef="data_nascimento">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-10"> Data de Nascimento </th>
+          <td mat-cell *matCellDef="let paciente" class="column-10 number"> {{paciente.data_nascimento}} </td>
+        </ng-container>
+
+         <ng-container matColumnDef="telefone">
+           <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-10"> Telefone </th>
+           <td mat-cell *matCellDef="let paciente" class="column-10"> {{paciente.telefone}} </td>
+         </ng-container>
+         <ng-container matColumnDef="action">
+           <th mat-header-cell *matHeaderCellDef class="column-10 "></th>
+           <td mat-cell *matCellDef="let paciente" class="column-10">
+             <button mat-icon-button  pTooltip="Editar"
+               tooltipPosition="top" (click)="redirectToEditMaterial(paciente.id)">
+               <mat-icon class="icon-secondary-color" >edit</mat-icon>
+             </button>
+             <button mat-icon-button  pTooltip="Excluir" tooltipPosition="top"  (click)="confirmDelete(paciente)">
+               <mat-icon class="icon-secondary-color">delete</mat-icon>
+             </button>
+           </td>
+         </ng-container>
+         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+     </table>
+     <mat-paginator  [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" [showFirstLastButtons]="true" ></mat-paginator>
+   </div>
+ </div>
+</div>
+
+<app-confirm-modal #confirmModal></app-confirm-modal>

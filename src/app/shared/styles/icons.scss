@@ -1,0 +1,56 @@
+.icon-btn {
+    font-size: 17px !important;
+    margin-top: 3px;
+    margin-left: -6px;
+
+    &.right {
+        margin-left: 1px !important;
+        margin-right: -5px;
+    }
+
+    &.center {
+        margin-top: 10px !important;
+        margin-left: 2px !important; 
+    }
+}
+
+.icon-check-password {
+    color: var(--secondary-blue) !important;
+    font-size: 13px !important;
+}
+
+.icon-circle-password {
+    margin-top: 2px;
+    font-size: 8px !important;
+}
+
+
+.icon-search {
+    margin-right: 10px;
+}
+
+.icon-social {
+    margin: 0 14px 18px 5px ;
+}
+
+.mat-form-field-prefix, .mat-form-field-suffix {
+    position: static !important;
+}
+
+.icon-20 {
+   font-size: 20px !important;
+}
+
+.click {
+    cursor: pointer;
+}
+
+.icon-secondary-color {
+    color: var(--secondary-blue) !important;
+}
+
+.icon-dropdown {
+    display: flex; 
+    margin-top: -20px; 
+    margin-left: 90%;
+}

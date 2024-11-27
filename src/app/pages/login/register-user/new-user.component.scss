@@ -1,0 +1,41 @@
+.display-login{
+    width: 70vw;
+    height: 76vh;
+}
+
+.display{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    border-radius: 0px 10px 10px 0px;
+}
+
+.logo{
+    border-radius: 10px 0px 0px 10px;
+}
+
+.fundo{
+    background: #a8bbcca4;
+}
+
+
+@media screen and (max-width: 550px){
+    .logo{
+        display: none!important;
+    }
+
+    .login{
+        width: auto;
+        border-radius: 10px;
+    }
+    .display-login{
+        width: auto;
+    }
+}

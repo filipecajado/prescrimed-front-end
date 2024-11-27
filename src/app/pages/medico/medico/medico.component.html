@@ -1,0 +1,72 @@
+<div class="container-fluid p-3">
+
+  <div class="d-flex align-items-center justify-content-between mb-5">
+    <label class="titles title-2 semibold extended-secondary-darker">
+      {{form.get('medicoData')?.get('id')?.value ? 'Editar Medico' : 'Novo Medico'}}
+    </label>
+  </div>
+
+
+  <form [formGroup]="form">
+    <div class="form-div" formGroupName="medicoData">
+      <div class="row">
+        <div class="col-sm-2">
+          <mat-form-field appearance="outline">
+            <mat-label class="paragraph paragraph-2 mat-label">Código</mat-label>
+            <input matInput formControlName="id" />
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-5">
+          <mat-form-field appearance="outline">
+            <mat-label class="paragraph paragraph-2 mat-label">Nome</mat-label>
+            <input matInput formControlName="nome" />
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-5">
+          <mat-form-field appearance="outline">
+            <mat-label class="paragraph paragraph-2 mat-label">Especialização</mat-label>
+            <input matInput formControlName="especializacao" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-5">
+          <mat-form-field appearance="outline" class="mat-input">
+            <mat-label class="paragraph paragraph-2 mat-label">Telefone</mat-label>
+            <input matInput formControlName="telefone" [mask]="masks.phoneMask"/>
+        </mat-form-field>
+        </div>
+
+        <div class="col-sm-5">
+          <mat-form-field appearance="outline">
+            <mat-label class="paragraph paragraph-2 mat-label">CPF</mat-label>
+            <input matInput formControlName="cpf" [mask]="masks.cpfMask" />
+          </mat-form-field>
+        </div>
+
+
+
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="d-flex justify-content-end">
+      <div class="col-sm-2 mx-2">
+        <button mat-button class="btn btn-secondary subtitle subtitle-1 semibold primary-color"
+           (click)="confirmCancel()">Cancelar</button>&nbsp;
+      </div>
+      <div class="col-sm-2">
+        <button mat-button [disabled]="form.invalid" class="btn btn-primary subtitle subtitle-1 semibold white"
+          (click)="save()">
+          {{form.get('medicoData')?.get('id')?.value ? 'Atualizar' : 'Salvar'}}
+        </button>&nbsp;
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-confirm-modal #confirmModal></app-confirm-modal>

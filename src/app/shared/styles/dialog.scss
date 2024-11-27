@@ -1,0 +1,23 @@
+.p-dialog {
+  border-radius: 16px !important;
+  overflow: auto;
+  width: 80vw;
+}
+
+@media screen and (min-width: 576px) {
+  .large {
+    .p-dialog {
+      width: 80vw;
+    }
+  }
+
+  .medium {
+    .p-dialog {
+      width: 50vw;
+    }
+  }
+}
+
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+  z-index: 99999 !important;
+}

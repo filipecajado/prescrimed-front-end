@@ -1,0 +1,28 @@
+<p-confirmDialog #cd class="medium">
+  <ng-template pTemplate="header">
+    <div class="container"
+      style="width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+      <img src="./../../../../assets/imgs/atention.svg" style="width: 175px;" >
+
+      <div class="row mt-3">
+        <div class="col-sm-12">
+          <label class="subtitle subtitle-3 semibold">{{ title }}</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <label class="subtitle subtitle-1">{{ text }}</label>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <div class="d-flex justify-content-end">
+      <button mat-button class="btn btn-secondary subtitle subtitle-1 semibold primary-color"
+        (click)="cd.reject()">Cancelar</button>&nbsp;
+      <button mat-button class="btn btn-primary subtitle subtitle-1 semibold white" 
+        (click)="cd.accept()">Confirmar</button>&nbsp;   
+    </div>
+  </ng-template>
+</p-confirmDialog>

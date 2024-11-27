@@ -1,0 +1,170 @@
+<div class="container-fluid p-3">
+
+    <div class="d-flex align-items-center justify-content-between">
+        <label class="titles title-2 semibold extended-secondary-darker">
+            {{form.get('clientData')?.get('id')?.value ? 'Editar Cliente' : 'Novo Cliente'}}
+        </label>
+    </div>
+
+    <form [formGroup]="form">
+        <div class="row my-4" >
+            <div class="col-12">
+                <label class="subtitle subtitle-2 semibold extended-secondary-darker">Dados Cadastrais</label>
+            </div>
+        </div>
+
+        <div class="form-div" formGroupName="clientData">
+            <div class="row">
+                <div class="col-sm-2">
+                    <mat-form-field appearance="outline" class="mat-input">
+                        <mat-label class="paragraph paragraph-2 mat-label">Código</mat-label>
+                        <input matInput formControlName="id" />
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-4">
+                    <mat-form-field appearance="outline" class="mat-input">
+                        <mat-label class="paragraph paragraph-2 mat-label">Nome Fantasia</mat-label>
+                        <input matInput formControlName="fantasyName" />
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-4">
+                    <mat-form-field appearance="outline" class="mat-input">
+                        <mat-label class="paragraph paragraph-2 mat-label">Razão Social</mat-label>
+                        <input matInput formControlName="corporateName" />
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="paragraph paragraph-2" style="margin: 3px">
+                      <label class="pass-13 secondary-neutral">Situação</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <input type="checkbox" name="togle"
+                      (click)="form.disabled ? $event.preventDefault() : ''"
+                      [style]="form.disabled ? 'cursor: not-allowed; background-color: #B0E3E1;' : ''"
+                      id="togle" class="switchButton" formControlName="isActive" />
+                      <label for="togle" class="label-st">
+                        {{form.get('clientData')?.get('isActive')?.value ? 'Ativo' : 'Inativo'}}
+                      </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <mat-form-field appearance="outline" class="mat-input">
+                        <mat-label class="paragraph paragraph-2 mat-label">Telefone</mat-label>
+                        <input matInput formControlName="phone" [mask]="masks.phoneMask"/>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-3">
+                    <mat-form-field appearance="outline" class="mat-input">
+                        <mat-label class="paragraph paragraph-2 mat-label">CNPJ</mat-label>
+                        <input matInput formControlName="cnpj" [mask]="masks.cnpjMask"/>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-3">
+                    <mat-form-field appearance="outline" class="mat-input">
+                        <mat-label class="paragraph paragraph-2 mat-label">Inscrição Estadual</mat-label>
+                        <input matInput formControlName="stateRegistration" [mask]="masks.srMask"/>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-3">
+                    <mat-form-field appearance="outline" class="mat-input">
+                        <mat-label class="paragraph paragraph-2 mat-label">Segmento</mat-label>
+                        <input matInput formControlName="segment"/>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-4" >
+            <div class="col-12">
+                <label class="subtitle subtitle-2 semibold extended-secondary-darker">Endereço</label>
+            </div>
+        </div>
+
+        <div class="form-div" formGroupName="address">
+            <div class="row">
+                <div class="col-sm-3">
+                    <mat-form-field appearance="outline" class="mat-input">
+                        <mat-label class="paragraph paragraph-2 mat-label">CEP</mat-label>
+                        <input matInput formControlName="cep" [mask]="masks.cepMask"/>
+                    </mat-form-field>
+                </div>
+                
+                <div class="col-sm-3">
+                    <mat-form-field appearance="outline" class="mat-input">
+                        <mat-label class="paragraph paragraph-2 mat-label">Logradouro</mat-label>
+                        <input matInput formControlName="streetAddress"/>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-3">
+                    <mat-form-field appearance="outline" class="mat-input">
+                        <mat-label class="paragraph paragraph-2 mat-label">Número</mat-label>
+                        <input matInput formControlName="number"/>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-3">
+                    <mat-form-field appearance="outline" class="mat-input">
+                        <mat-label class="paragraph paragraph-2 mat-label">Complemento</mat-label>
+                        <input matInput formControlName="complement"/>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <mat-form-field appearance="outline" class="mat-input">
+                        <mat-label class="paragraph paragraph-2 mat-label">Bairro</mat-label>
+                        <input matInput formControlName="district"/>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm-3">
+                    <mat-form-field appearance="outline" class="mat-input">
+                        <mat-label class="paragraph paragraph-2 mat-label">Cidade</mat-label>
+                        <input matInput formControlName="city"/>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-2">
+                    <mat-form-field appearance="outline" class="mat-input" class="mat-input">
+                        <mat-label class="paragraph paragraph-2 mat-label">Estado</mat-label>
+                        <mat-select formControlName="uf" [disableOptionCentering]="true"
+                            panelClass="mat-select-panel-below">
+                            <mat-option *ngFor="let state of states" [value]="state">
+                                {{state}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+
+    <div class="row">
+        <div class="d-flex justify-content-end">
+            <div class="col-sm-2 mx-2">
+                <button mat-button class="btn btn-secondary subtitle subtitle-1 semibold primary-color"
+                     (click)="confirmCancel()">Cancelar</button>&nbsp;
+            </div>
+            <div class="col-sm-2">
+                <button mat-button [disabled]="form.invalid" class="btn btn-primary subtitle subtitle-1 semibold white"
+                    (click)="save()">
+                    {{form.get('materialData')?.get('id')?.value ? 'Atualizar' : 'Salvar'}}
+                </button>&nbsp;
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-confirm-modal #confirmModal></app-confirm-modal>

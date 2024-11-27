@@ -1,0 +1,135 @@
+<!-- <div class="container-fluid">
+    <div class="row d-flex">
+        <div class="col-6 d-flex align-items-center justify-content-center"
+            style="background-color: var(--extended-secondary-normal)">
+            <div class="container-img">
+                <img src="./../../../../assets/imgs/logo.svg">
+            </div>
+        </div>
+        <div class="col-6 d-flex align-items-center justify-content-center" style="height: 100vh; overflow: hidden;" [formGroup]="form">
+            <div style="width: 35vw;">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="heading title-1 semibold">Login</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-sm-11">
+                        <mat-form-field appearance="outline" class="mat-input">
+                            <mat-label class="paragraph paragraph-2 mat-label">E-mail</mat-label>
+                            <input matInput value="" formControlName="email">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-sm-11">
+                        <mat-form-field appearance="outline" class="mat-input">
+                            <mat-label class="paragraph paragraph-2 mat-label">Senha</mat-label>
+                            <input matInput [type]="hidePassword ? 'password' : 'text'"  formControlName="password">
+                            <mat-icon matSuffix (click)="hidePassword = !hidePassword"
+                                class="mat-icon click">{{hidePassword ? 'visibility' : 'visibility_off'}}</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: -10px;">
+                    <div class="col-12 col-sm-11">
+                        <mat-checkbox id="checkbox" formControlName="keepConnected">
+                            <label class="paragraph paragraph-2 label-checkbox click">Mantenha-me conectado</label>
+                        </mat-checkbox>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 40px">
+                    <div class="col-12 col-sm-11">
+                        <button mat-button class="btn btn-primary subtitle subtitle-1 semibold white"
+                        (click)="authLogin()">Entrar</button>&nbsp;
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-sm-11">
+                        <button mat-button class="btn text-button subtitle subtitle-1 semibold primary-color">Esqueci
+                            minha senha</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- Caso volte com o meu antigo -->
+
+<div class="container-fluid fundo">
+    <div class="display">
+        <div class="row d-flex display-login shadow-lg">
+            <div class="col-6 d-flex align-items-center justify-content-center logo"
+                style="background-color: var(--extended-secondary-normal)">
+                <div class="container-img">
+                    <img src="./../../../../assets/imgs/logo.svg" style="width: 220px;">
+                </div>
+            </div>
+
+            <div class="col-6 bg-white login">
+                <div class="col-12 px-3">
+                    <form [formGroup]="form">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <label class="heading title-1 semibold">Login</label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-12 ">
+                                <mat-form-field appearance="outline" class="mat-input">
+                                    <mat-label class="paragraph paragraph-2 mat-label">E-mail</mat-label>
+                                    <input matInput value="" formControlName="email" #emailInput>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <mat-form-field appearance="outline" class="mat-input">
+                                    <mat-label class="paragraph paragraph-2 mat-label">Senha</mat-label>
+                                    <input matInput [type]="hidePassword ? 'password' : 'text'"
+                                        formControlName="password" autocomplete="current-password" autocomplete="username">
+                                    <mat-icon matSuffix (click)="hidePassword = !hidePassword"
+                                        class="mat-icon click">{{hidePassword ? 'visibility' :
+                                        'visibility_off'}}</mat-icon>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: -10px;">
+                            <div class="col-12 col-sm-11">
+                                <mat-checkbox id="checkbox" formControlName="keepConnected">
+                                    <label class="paragraph paragraph-2 label-checkbox click">Mantenha-me
+                                        conectado</label>
+                                </mat-checkbox>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <div class="row" style="margin-top: 40px">
+                        <div class="col-12">
+                            <button mat-button class="btn btn-primary subtitle subtitle-1 semibold white"
+                                (click)="login()">Entrar</button>&nbsp;
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 ">
+                            <button routerLink="/new-user" mat-button
+                                class="btn text-button subtitle subtitle-1 semibold primary-color">Criar conta</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

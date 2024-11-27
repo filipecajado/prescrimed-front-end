@@ -1,0 +1,68 @@
+.mat-toolbar {
+  height: 10vh;
+  background-color: var(--extended-primary-normal);
+  z-index: 999;
+  color: #FFF;
+}
+
+.link-nav {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.side-nav-menu{
+  border-bottom: 1px solid rgba(179, 179, 179, 0.692);
+}
+
+.menu-bar {
+  margin-top: 10vh;
+  position: fixed;
+  color: #fff;
+  height: 100%;
+  width: 9vw;
+  margin: 0;
+  padding: 5px;
+  background-color: var(--extended-secondary-normal);
+  left: 0;
+  transition: width 0.3s ease;
+  z-index: 1;
+  
+}
+
+.active-menu .menu-bar {
+  width: 6vw; 
+}
+
+.router-path {
+  display: flex;
+  width: 100%;
+  background-color: var(--extended-secondary-normal);
+}
+
+.main{
+  max-height: 85vh; 
+  overflow-y: auto;
+}
+
+:host(.active-menu) .main {
+  margin-left: 6vw;
+}
+
+// .crumb-active{
+//   font-weight: 900;
+// }
+
+.menu-small{
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle-icon{
+  background-color: #35516b;
+  color: #fff;
+  width: auto;
+}
+
+.toggle-icon:focus, .toggle-icon:active{
+  border: none!important;
+}

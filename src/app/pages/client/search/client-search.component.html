@@ -1,0 +1,83 @@
+<div class="container-fluid p-3">
+ 
+    <div class="">
+      <div>
+         <label class="titles title-3 semibold extended-secondary-darker ">Clientes</label>
+      </div>
+      <div class="d-flex justify-content-between my-3">
+      
+        <div class="col-5 search">
+         <mat-form-field appearance="fill" class="mat-input">
+           <mat-icon matPrefix class="icon-search">search</mat-icon>
+           <mat-label class="paragraph paragraph-2 mat-label">Pesquisar</mat-label>
+           <input matInput value="" [(ngModel)]="fiterTable" (keyup)="applyFilter($event)" >
+         </mat-form-field>
+       </div>
+   
+        <div>
+          <button mat-button class="btn btn-primary subtitle white subtitle-1 semiboldw-auto p-3" routerLink="/clients/new-client">
+            <mat-icon class="icon-btn" routerLink="new-client">add</mat-icon>Novo Cliente
+          </button>
+        </div>
+      </div> 
+      <div>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;" matSort>
+           
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-10">Código</th>
+                <td mat-cell *matCellDef="let client" class="column-10 number"> {{client.id}} </td>
+            </ng-container>
+        
+           
+            <ng-container matColumnDef="fantasyName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-20"> Nome Fantasia</th>
+                <td mat-cell *matCellDef="let client" class="column-10"> {{client.fantasyName}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="cnpj">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-10"> CNPJ </th>
+                <td mat-cell *matCellDef="let client" class="column-10"> {{client.cnpj}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="segment">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-10"> Segmento </th>
+              <td mat-cell *matCellDef="let client" class="column-10"> {{client.segment}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="phone">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-10"> Telefone </th>
+              <td mat-cell *matCellDef="let client" class="column-10 nubmer"> {{client.phone}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="isActive">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-10"> Situação </th>
+              <td mat-cell *matCellDef="let client " class="column-10">
+                <div class="d-flex align-items-center">
+                  <input [(ngModel)]="client.isActive" type="checkbox" name="togle" id="togle" class="switchButton"
+                    >
+                  <label class="paragraph paragraph-1 label-st">{{client.isActive ? 'Ativo' : 'Inativo'}}</label>
+                </div>
+              </td>   
+             </ng-container>
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef class="column-10 "></th>
+              <td mat-cell *matCellDef="let client" class="column-10">
+                <button mat-icon-button  pTooltip="Editar"
+                  tooltipPosition="top" (click)="redirectToEditClient(client.id)">
+                  <mat-icon class="icon-secondary-color" >edit</mat-icon>
+                </button>
+                <button mat-icon-button  pTooltip="Excluir" tooltipPosition="top"  (click)="confirmDelete(client)">
+                  <mat-icon class="icon-secondary-color">delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>       
+        <mat-paginator  [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" [showFirstLastButtons]="true" ></mat-paginator>
+      </div>
+    </div>
+   </div>
+   
+   <app-confirm-modal #confirmModal></app-confirm-modal>

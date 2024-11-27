@@ -1,0 +1,52 @@
+{
+  "pacientes": [],
+  "medicos": [],
+  "users": [
+    {
+      "id": "1",
+      "email": "1",
+      "password": "1",
+      "confirmpassword": "1"
+    }
+  ],
+  "clients": [
+    {
+      "id": "1",
+      "fantasyName": "BoomCompany",
+      "corporateName": "BoomCompany Ltda ME",
+      "cnpj": "11123445552653",
+      "phone": "27999999999",
+      "stateRegistration": "11111111163333",
+      "isActive": true,
+      "segment": "Hidráulica",
+      "address": {
+        "cep": "29169208000141",
+        "city": "Vitoria",
+        "complement": "loja 2",
+        "district": "jardim camburi",
+        "number": "35",
+        "streetAddress": "Rua oitururru",
+        "uf": "ES"
+      }
+    },
+    {
+      "id": "2",
+      "fantasyName": "Moveiz",
+      "corporateName": "Moveiz Ltda-ME",
+      "cnpj": "12222222222",
+      "phone": "279999999999",
+      "stateRegistration": "43-111111-33",
+      "isActive": true,
+      "segment": "Imovel",
+      "address": {
+        "cep": "2300000000",
+        "city": "Serra",
+        "complement": "casda",
+        "district": "Jaridm lord",
+        "number": "34",
+        "streetAddress": "Rua calord gomes",
+        "uf": "BA"
+      }
+    }
+  ]
+}
