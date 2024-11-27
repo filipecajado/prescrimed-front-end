@@ -2,7 +2,7 @@
 
  <div class="">
    <div>
-      <label class="titles title-3 semibold extended-secondary-darker ">Consultas</label>
+      <label class="titles title-3 semibold extended-secondary-darker ">Exames</label>
    </div>
    <div class="d-flex justify-content-between my-3">
 
@@ -15,31 +15,30 @@
     </div>
 
      <div>
-       <button mat-button class="btn btn-primary subtitle white subtitle-1 semiboldw-auto p-3" routerLink="/consultas/new-consulta">
-         <mat-icon class="icon-btn">add</mat-icon>Nova Consulta
+       <button mat-button class="btn btn-primary subtitle white subtitle-1 semiboldw-auto p-3" routerLink="/exames/new-exame">
+         <mat-icon class="icon-btn">add</mat-icon>Novo Exame
        </button>
      </div>
    </div>
    <div>
      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;" matSort>
-
-         <ng-container matColumnDef="data_consulta">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-10"> Data de Consulta </th>
-          <td mat-cell *matCellDef="let consulta" class="column-10 number"> {{consulta.data_consulta | date: 'dd/MM/yyyy'  }} </td>
+         <ng-container matColumnDef="data_exame">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-10"> Data de Exame </th>
+          <td mat-cell *matCellDef="let exame" class="column-10 number"> {{exame.data_exame | date: 'dd/MM/yyyy'  }} </td>
         </ng-container>
-
-         <ng-container matColumnDef="motivo_consulta">
-           <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-10"> Motivo </th>
-           <td mat-cell *matCellDef="let consulta" class="column-10"> {{consulta.motivo_consulta}} </td>
+        <ng-container matColumnDef="tipo_exame">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-10"> Tipo do Exame </th>
+          <td mat-cell *matCellDef="let exame" class="column-10"> {{exame.tipo_exame}} </td>
+        </ng-container>
+         <ng-container matColumnDef="resultado">
+           <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-10"> Resultado </th>
+           <td mat-cell *matCellDef="let exame" class="column-10"> {{exame.resultado}} </td>
          </ng-container>
-         <ng-container matColumnDef="prescricao">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-10"> Prescrição </th>
-          <td mat-cell *matCellDef="let consulta" class="column-10"> {{consulta.prescricao}} </td>
-        </ng-container>
+
          <ng-container matColumnDef="action">
            <th mat-header-cell *matHeaderCellDef class="column-10 "></th>
-           <td mat-cell *matCellDef="let consulta" class="column-10">
-             <button mat-icon-button  pTooltip="Excluir" tooltipPosition="top"  (click)="confirmDelete(consulta)">
+           <td mat-cell *matCellDef="let exame" class="column-10">
+             <button mat-icon-button  pTooltip="Excluir" tooltipPosition="top"  (click)="confirmDelete(exame)">
                <mat-icon class="icon-secondary-color">delete</mat-icon>
              </button>
            </td>

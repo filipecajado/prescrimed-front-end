@@ -6,27 +6,27 @@ import { NavigationExtras, Router } from '@angular/router';
 import { ConfirmModalComponent } from 'src/app/shared/components/confirm-modal/confirm-modal.component';
 import { ToastComponent } from 'src/app/shared/components/toaster/toast/toast.component';
 import { MaterialEntity } from 'src/app/shared/domains/material/material';
-import { ConsultaServiceMock } from 'src/app/shared/mock/services/consulta.service';
+import { ExameServiceMock } from 'src/app/shared/mock/services/exame.service';
 
 
 
 @Component({
-    selector: 'app-consulta-search',
-    templateUrl: './consulta-search.component.html',
-    styleUrls: ['./consulta-search.component.scss'],
+    selector: 'app-exame-search',
+    templateUrl: './exame-search.component.html',
+    styleUrls: ['./exame-search.component.scss'],
 })
-export class ConsultaSearchComponent implements OnInit{
+export class ExameSearchComponent implements OnInit{
 
     dataSource = new MatTableDataSource<any>;
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort) sort: MatSort | undefined;
     @ViewChild('confirmModal') confirmModal: ConfirmModalComponent | undefined;
-    displayedColumns: string[] = [ 'data_consulta', 'motivo_consulta' , 'prescricao', 'action'];
+    displayedColumns: string[] = ['data_exame', 'tipo_exame' , 'resultado', 'action'];
     lastFilterValue: string = '';
     fiterTable: string = '';
 
     constructor(
-      private consultaService: ConsultaServiceMock,
+      private exameService: ExameServiceMock,
       private router: Router,
       private toastComponent: ToastComponent,
       ){
@@ -37,7 +37,7 @@ export class ConsultaSearchComponent implements OnInit{
     }
 
     async getMaterial(){
-      const data = await this.consultaService.getAll();
+      const data = await this.exameService.getAll();
 
       this.dataSource = new MatTableDataSource(data);
       if (this.paginator)
@@ -50,7 +50,7 @@ export class ConsultaSearchComponent implements OnInit{
       const extras: NavigationExtras = {
         queryParams: { id }
       }
-      this.redirectTo('/consultas/edit-consulta', extras);
+      this.redirectTo('/exames/edit-exame', extras);
     }
 
 
@@ -60,7 +60,7 @@ export class ConsultaSearchComponent implements OnInit{
 
 
  async deleteMaterial(id: number) {
-    const success = await this.consultaService.delete(id);
+    const success = await this.exameService.delete(id);
     if (success) {
       await this.getMaterial();
       this.toastComponent.showSuccessCustomMessage('Exclusão realizada com sucesso','', 3000);

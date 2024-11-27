@@ -36,6 +36,11 @@
         <mat-icon class="white material-icons-outlined">receipt_long</mat-icon>
         <a class="ms-1 link-nav" routerLink="/consultas">Consultas</a>
       </div>
+
+      <div class=" d-flex align-items-center my-4" [ngClass]="{ 'menu-small' : isShown}">
+        <mat-icon class="white material-icons-outlined">receipt_long</mat-icon>
+        <a class="ms-1 link-nav" routerLink="/exames">Exames</a>
+      </div>
     </div>
     <div class="d-flex justify-content-center mt-5">
       <button class="toggle-icon btn " tabindex="0" (keyup.space)="toggle()" (click)="toggle()">

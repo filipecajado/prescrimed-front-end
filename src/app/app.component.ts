@@ -89,6 +89,14 @@ export class AppComponent implements OnInit {
         return 'Consultas';
       case 'new-consulta':
         return 'Nova Consulta';
+      case 'edit-consulta':
+        return 'Editar Consulta';
+      case 'exames':
+        return 'Exames';
+      case 'new-exame':
+        return 'Novo Exame';
+      case 'edit-exame':
+        return 'Editar Exame';
     }
     return `@-> ADICIONAR TRADUCAO ${path}`;
   }

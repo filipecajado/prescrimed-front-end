@@ -31,6 +31,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { ConsultaModule } from './pages/consulta/consulta.module';
 import { PacienteServiceMock } from './shared/mock/services/paciente.service';
 import { ConsultaServiceMock } from './shared/mock/services/consulta.service';
+import { ExameServiceMock } from './shared/mock/services/exame.service';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { ConsultaServiceMock } from './shared/mock/services/consulta.service';
     { provide: MedicoServiceMock},
     { provide: PacienteServiceMock},
     { provide: ConsultaServiceMock},
+    { provide: ExameServiceMock},
     { provide: AuthServiceMock },
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     ConfirmationService,

@@ -9,7 +9,8 @@ const routes: Routes = [
     { path: 'clients', loadChildren: () => import('./pages/client/client.module').then(m => m.ClientModule) },
     { path: 'medicos', loadChildren: () => import('./pages/medico/medico.module').then(m => m.MedicoModule) },
     { path: 'pacientes', loadChildren: () => import('./pages/paciente/paciente.module').then(m => m.PacienteModule) },
-    { path: 'consultas', loadChildren: () => import('./pages/consulta/consulta.module').then(m => m.ConsultaModule) }
+    { path: 'consultas', loadChildren: () => import('./pages/consulta/consulta.module').then(m => m.ConsultaModule) },
+    { path: 'exames', loadChildren: () => import('./pages/exame/exame.module').then(m => m.ExameModule) }
 
   ];
 

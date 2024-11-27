@@ -1,0 +1,122 @@
+<div class="container-fluid p-3">
+
+  <div class="d-flex align-items-center justify-content-between mb-5">
+    <label class="titles title-2 semibold extended-secondary-darker">
+      {{form.get('exameData')?.get('id')?.value ? 'Editar Exame' : 'Novo Exame'}}
+    </label>
+  </div>
+
+
+  <form [formGroup]="form">
+    <div class="form-div" formGroupName="exameData">
+      <div class="row">
+        <div class="col-sm-2">
+          <mat-form-field appearance="outline">
+            <mat-label class="paragraph paragraph-2 mat-label">Código</mat-label>
+            <input matInput formControlName="id" />
+          </mat-form-field>
+        </div>
+        <div class="col-sm-2">
+          <mat-form-field appearance="outline">
+            <mat-label>Data Exame</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="data_exame">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field appearance="outline" class="mat-input">
+            <mat-label class="paragraph paragraph-2 mat-label">Medico</mat-label>
+            <mat-select [disableOptionCentering]="true" panelClass="mat-select-panel-below" formControlName="medico_id"
+              required="true">
+              <mat-option *ngFor="let medico of medicos" [value]="medico.id">
+                {{ medico.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field appearance="outline" class="mat-input">
+            <mat-label class="paragraph paragraph-2 mat-label">Paciente</mat-label>
+            <mat-select [disableOptionCentering]="true" panelClass="mat-select-panel-below"
+              formControlName="paciente_id" required="true">
+              <mat-option *ngFor="let paciente of pacientes" [value]="paciente.id">
+                {{ paciente.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field appearance="outline" class="mat-input">
+            <mat-label class="paragraph paragraph-2 mat-label">Tipo de Exame</mat-label>
+            <mat-select [disableOptionCentering]="true" panelClass="mat-select-panel-below" formControlName="tipo_exame"
+              required="true">
+              <mat-option value="Exames de urina">
+                Exames de urina
+              </mat-option>
+              <mat-option value="Hemograma">
+                Exames de fezes
+              </mat-option>
+              <mat-option value="Hemograma">
+                Glicemia
+              </mat-option>
+              <mat-option value="Transaminases (ALT e AST) ou TGP e TGO.">
+                Transaminases (ALT e AST) ou TGP e TGO.
+              </mat-option>
+              <mat-option value="Ureia e Creatinina.">
+                Ureia e Creatinina.
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-6 ">
+          <mat-form-field appearance="outline" class="mat-input">
+            <mat-label class="paragraph paragraph-2 mat-label">prescricao</mat-label>
+            <textarea matInput maxLength="400" formControlName="prescricao" style="height: 4rem;"></textarea>
+          </mat-form-field>
+        </div>
+
+
+      </div>
+      <div class="row">
+        <div class="col-6 ">
+          <mat-form-field appearance="outline" class="mat-input">
+            <mat-label class="paragraph paragraph-2 mat-label">observacoes</mat-label>
+            <textarea matInput maxLength="400" formControlName="observacoes" style="height: 4rem;"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="col-6 ">
+          <mat-form-field appearance="outline" class="mat-input">
+            <mat-label class="paragraph paragraph-2 mat-label">Resultado</mat-label>
+            <textarea matInput maxLength="400" formControlName="resultado" style="height: 4rem;"></textarea>
+          </mat-form-field>
+        </div>
+
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="d-flex justify-content-end">
+      <div class="col-sm-2 mx-2">
+        <button mat-button class="btn btn-secondary subtitle subtitle-1 semibold primary-color"
+          (click)="confirmCancel()">Cancelar</button>&nbsp;
+      </div>
+      <div class="col-sm-2">
+        <button mat-button [disabled]="form.invalid" class="btn btn-primary subtitle subtitle-1 semibold white"
+          (click)="save()">
+          {{form.get('exameData')?.get('id')?.value ? 'Atualizar' : 'Salvar'}}
+        </button>&nbsp;
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-confirm-modal #confirmModal></app-confirm-modal>
