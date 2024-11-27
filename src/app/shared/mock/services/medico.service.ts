@@ -7,7 +7,7 @@ import { ToastComponent } from "../../components/toaster/toast/toast.component";
 import { MedicoEntity } from "../../domains/medico/medico";
 
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://localhost:9090';
 @Injectable({
     providedIn: 'root'
   })

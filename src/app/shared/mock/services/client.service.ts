@@ -8,7 +8,7 @@ import { ClientServiceInterface } from "../../interfaces/client-service.interfac
 import { ClientEntity } from "../../domains/client/client";
 
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://localhost:9090';
 @Injectable({
     providedIn: 'root'
   })
@@ -42,7 +42,7 @@ export class ClientServiceMock implements ClientServiceInterface{
       throw new Error();
     }
 
-    
+
     async save(client: ClientEntity): Promise<boolean> {
         try{
             const clients = await lastValueFrom(this.http.post(API_URL + '/clients', client,  { 'headers': { 'Content-Type': 'application/json' } }))
@@ -51,7 +51,7 @@ export class ClientServiceMock implements ClientServiceInterface{
             }
         } catch (error){
             throw new Error();
-            
+
         }
         return false
     }

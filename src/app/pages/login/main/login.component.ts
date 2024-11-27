@@ -70,7 +70,6 @@ export class LoginComponent implements OnInit {
           this.platformDetectorService.isPlatformBrowser() && this.emailInput.nativeElement.focus();
           this.toastComponent.showErrorCustomMessage('Oops!', 'Email ou senha inválidos. Verifique suas credenciais e tente novamente.');
           this.passwordInvalid = true;
-          this.router.navigateByUrl("/home");
         }
       },
       error => {

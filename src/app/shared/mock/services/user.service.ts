@@ -6,7 +6,7 @@ import { ToastComponent } from '../../components/toaster/toast/toast.component';
 import { TokenService } from '../../utils/token/token.service';
 import jwt_decode from 'jwt-decode';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://localhost:9090';
 
 @Injectable({
     providedIn: 'root'

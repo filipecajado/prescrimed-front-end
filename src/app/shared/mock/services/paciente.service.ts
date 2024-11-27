@@ -8,7 +8,7 @@ import { PacienteEntity } from "../../domains/paciente";
 
 
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://localhost:9090';
 @Injectable({
     providedIn: 'root'
   })
